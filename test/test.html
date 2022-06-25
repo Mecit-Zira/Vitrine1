@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Header test</title>
+	<link rel="stylesheet" type="text/css" href="test.css">
+</head>
+<body>
+  <header>
+  	<p>Vitrine</p>
+  	<ul class="navbar">
+  		<li><a href="">lien 1</a></li>
+  	    <li><a href="">lien 2</a></li>
+  	    <li><a href="">lien 3</a></li>
+  	    <li><a href="">lien 4</a></li>
+  	</ul>
+  	<a class="burger">
+  		<span></span>
+  		<span></span>
+  		<span></span>
+  	</a>
+  </header>
+  <div id="slider">
+    <div class="queu">
+    	<span class="active"></span>
+    	<span></span>
+    	<span></span>
+    </div>
+    <div class="fleche">
+    	<span onclick="slider(-1);"><p><</p></span>
+    	<span onclick="slider(1);"><p>></p></span>
+    </div>
+  </div>
+
+  <div id="middle">
+  	<div>
+  		<h3>Log1</h3>
+  		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ipsum vel magna vulputate faucibus. Nulla sagittis leo ut est suscipit, et suscipit nulla fringilla. Sed accumsan leo ex, ut semper arcu pellentesque in. Maecenas tincidunt scelerisque nunc, at suscipit risus tincidunt vulputate. Nullam dignissim purus neque, sit amet bibendum nunc vulputate nec. Proin urna purus, aliquam non mi vitae, pulvinar iaculis mauris.
+  		</p>
+  	</div>
+  	<div>
+  		<h3>Log2</h3>
+  		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ipsum vel magna vulputate faucibus. Nulla sagittis leo ut est suscipit, et suscipit nulla fringilla. Sed accumsan leo ex, ut semper arcu pellentesque in. Maecenas tincidunt scelerisque nunc, at suscipit risus tincidunt vulputate. Nullam dignissim purus neque, sit amet bibendum nunc vulputate nec. Proin urna purus, aliquam non mi vitae, pulvinar iaculis mauris.
+  		</p>
+  	</div>
+  	  	<div>
+  		<h3>Log3</h3>
+  		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ipsum vel magna vulputate faucibus. Nulla sagittis leo ut est suscipit, et suscipit nulla fringilla. Sed accumsan leo ex, ut semper arcu pellentesque in. Maecenas tincidunt scelerisque nunc, at suscipit risus tincidunt vulputate. Nullam dignissim purus neque, sit amet bibendum nunc vulputate nec. Proin urna purus, aliquam non mi vitae, pulvinar iaculis mauris.
+  		</p>
+  	</div>
+  </div>
+
+  <div id="footer">
+  		<p>Un site basic creer par Mecit Zira</p>
+  </div>
+</body>
+
+
+<script type="text/javascript">
+	const navbar = document.querySelector('.navbar');
+	const burger = document.querySelector('.burger');
+	const slide = document.querySelector('#slider');
+
+	burger.addEventListener('click', (e) => {
+		navbar.classList.toggle('open');
+	});
+
+	var actived = 0;
+	function slider(a) {
+		const active = document.querySelector('.active');
+		const queu = document.querySelector('.queu');
+  		active.classList.toggle('active');
+  		if( a == -1 && actived == 0){
+  			actived = 2;
+  		} 
+  		else if( a == 1 && actived == 2 ){
+  			actived = 0;
+  		}else{
+  			actived +=a;
+  		}
+  		queu.children[actived].classList.toggle('active');
+  		if (actived == 0) {
+  			slide.style.backgroundColor = "red";
+  		}
+  		else if (actived == 1) {
+  			slide.style.backgroundColor = "blue";
+  		}
+  		else{
+  			slide.style.backgroundColor = "black";
+  		}
+  		return actived;            
+	}
+</script>
+
+</html> 
